@@ -121,7 +121,7 @@
 
 
         <TextView
-            android:id="@+id/tvPatientLastName"
+            android:id="@+id/tvPatientMiddleName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/product_sans_regular"
@@ -134,7 +134,7 @@
 
 
         <TextView
-            android:id="@+id/tvPatientMiddleName"
+            android:id="@+id/tvPatientLastName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/product_sans_regular"

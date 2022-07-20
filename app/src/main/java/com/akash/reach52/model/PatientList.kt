@@ -4,9 +4,8 @@ import android.graphics.Bitmap
 import android.os.Parcelable
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import kotlinx.android.parcel.Parcelize
 
-@Parcelize
+@kotlinx.parcelize.Parcelize
 @Entity(tableName = "patient_list")
 data class PatientList(
     @PrimaryKey(autoGenerate = true)
