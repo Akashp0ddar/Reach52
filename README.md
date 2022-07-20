@@ -31,4 +31,9 @@ Delete :- For deleting data there are two ways
           1.Paticular data :- For deleting a paticular data you just need to click on paticular data and you will navigate to updation screen, there you will see a delete button 
                               by clicking on that button you can delete paticular data
                            
-          2.Entire data :- For deleting the entire data you will see a dustbin Icon on top right corner on HomeScreen(where you see all your data) by clicking on it you can delete all the data                           
+          2.Entire data :- For deleting the entire data you will see a dustbin Icon on top right corner on HomeScreen(where you see all your data) by clicking on it you can delete all the data 
+          
+          
+Android Studio :- Android Studio Chipmunk | 2021.2.1
+programming language :- Kotlin
+JDK version :- JDK 11 
