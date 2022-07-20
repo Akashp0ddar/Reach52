@@ -21,8 +21,8 @@ class AddFragment : Fragment(R.layout.fragment_add) {
     private var binding: FragmentAddBinding? = null
     private lateinit var imageBitmap: Bitmap
 
-    private val viewModel by viewModels<PatientViewModel>()
 
+    private val viewModel by viewModels<PatientViewModel>()
 
     /**
      * Using contracts to pickup image from Gallery
@@ -61,6 +61,7 @@ class AddFragment : Fragment(R.layout.fragment_add) {
             galleryImage.launch("image/*")
         }
     }
+
 
     private fun insertDataToDataBase() {
         val patientFirstName = binding?.etPatientName?.text.toString()
@@ -148,6 +149,7 @@ class AddFragment : Fragment(R.layout.fragment_add) {
         val source: ImageDecoder.Source = ImageDecoder.createSource(context.contentResolver, Image)
         return ImageDecoder.decodeBitmap(source)
     }
+
 
     override fun onDestroy() {
         super.onDestroy()

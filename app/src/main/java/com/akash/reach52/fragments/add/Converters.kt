@@ -9,10 +9,10 @@ class Converters {
 
     @TypeConverter
     fun fromBitmap(bitmap: Bitmap?): ByteArray {
-        val curentBitmap =
+        val currentBitmap =
             bitmap ?: Bitmap.createBitmap(250, 250, Bitmap.Config.ARGB_8888)
         val outputStream = ByteArrayOutputStream()
-        curentBitmap.compress(Bitmap.CompressFormat.PNG, 100, outputStream)
+        currentBitmap.compress(Bitmap.CompressFormat.PNG, 100, outputStream)
         return outputStream.toByteArray()
     }
 
