@@ -1,10 +1,213 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".fragments.update.UpdateFragment">
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context=".fragments.add.AddFragment">
+
+        <TextView
+            android:id="@+id/tvListPatientUpdate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/product_sans_bold"
+            android:text="@string/patient"
+            android:textColor="@color/black"
+            android:textSize="30sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/etPatientNameUpdate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/et_bg"
+            android:hint="First name"
+            android:maxLines="1"
+            android:padding="15dp"
+            app:layout_constraintEnd_toEndOf="@id/etPatientNameUpdate"
+            app:layout_constraintStart_toStartOf="@id/etPatientNameUpdate"
+            app:layout_constraintTop_toBottomOf="@id/tvListPatientUpdate" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/etPatientMiddleNameUpdate"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/et_bg"
+            android:hint="Middle name"
+            android:maxLines="1"
+            android:padding="15dp"
+            app:layout_constraintEnd_toEndOf="@id/etPatientNameUpdate"
+            app:layout_constraintStart_toStartOf="@id/etPatientNameUpdate"
+            app:layout_constraintTop_toBottomOf="@id/etPatientNameUpdate" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/etPatientLastNameUpdate"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/et_bg"
+            android:hint="Last name"
+            android:maxLines="1"
+            android:padding="15dp"
+            app:layout_constraintEnd_toEndOf="@id/etPatientNameUpdate"
+            app:layout_constraintStart_toStartOf="@id/etPatientNameUpdate"
+            app:layout_constraintTop_toBottomOf="@id/etPatientMiddleNameUpdate" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/etPatientSexUpdate"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/et_bg"
+            android:hint="Sex"
+            android:inputType="textAutoComplete"
+            android:maxLength="11"
+            android:maxLines="1"
+            android:padding="15dp"
+            app:layout_constraintEnd_toEndOf="@id/etPatientNameUpdate"
+            app:layout_constraintStart_toStartOf="@id/etPatientNameUpdate"
+            app:layout_constraintTop_toBottomOf="@id/etPatientLastNameUpdate" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/etPatientBirthdateUpdate"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/et_bg"
+            android:hint="Birthdate"
+            android:inputType="date"
+            android:maxLines="1"
+            android:padding="15dp"
+            app:layout_constraintEnd_toEndOf="@id/etPatientNameUpdate"
+            app:layout_constraintStart_toStartOf="@id/etPatientNameUpdate"
+            app:layout_constraintTop_toBottomOf="@id/etPatientSexUpdate" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivPatientImageUpdate"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_marginTop="20dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_plus"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/etPatientBirthdateUpdate" />
+
+        <View
+            android:id="@+id/viewImageUpdate"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginHorizontal="20sp"
+            android:layout_marginTop="20dp"
+            android:background="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivPatientImageUpdate" />
+
+        <TextView
+            android:id="@+id/tvListDoctorUpdate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/product_sans_bold"
+            android:text="Doctor"
+            android:textColor="@color/black"
+            android:textSize="30sp"
+            app:layout_constraintStart_toStartOf="@id/tvListPatientUpdate"
+            app:layout_constraintTop_toBottomOf="@id/viewImageUpdate" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/etDoctorIDUpdate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/et_bg"
+            android:hint="ID"
+            android:maxLines="1"
+            android:padding="15dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvListDoctorUpdate" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/etDoctorFirstNameUpdate"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/et_bg"
+            android:hint="First name"
+            android:maxLines="1"
+            android:padding="15dp"
+            app:layout_constraintEnd_toEndOf="@id/etPatientNameUpdate"
+            app:layout_constraintStart_toStartOf="@id/etPatientNameUpdate"
+            app:layout_constraintTop_toBottomOf="@id/etDoctorIDUpdate" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/etDoctorMiddleNameUpdate"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/et_bg"
+            android:hint="Middle name"
+            android:maxLines="1"
+            android:padding="15dp"
+            app:layout_constraintEnd_toEndOf="@id/etPatientNameUpdate"
+            app:layout_constraintStart_toStartOf="@id/etPatientNameUpdate"
+            app:layout_constraintTop_toBottomOf="@id/etDoctorFirstNameUpdate" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/etDoctorLastNameUpdate"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/et_bg"
+            android:hint="Last Name"
+            android:maxLines="1"
+            android:padding="15dp"
+            app:layout_constraintEnd_toEndOf="@id/etPatientNameUpdate"
+            app:layout_constraintStart_toStartOf="@id/etPatientNameUpdate"
+            app:layout_constraintTop_toBottomOf="@id/etDoctorMiddleNameUpdate" />
 
 
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/etDoctorDateUpdate"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/et_bg"
+            android:hint="Date"
+            android:maxLines="1"
+            android:padding="15dp"
+            app:layout_constraintEnd_toEndOf="@id/etPatientNameUpdate"
+            app:layout_constraintStart_toStartOf="@id/etPatientNameUpdate"
+            app:layout_constraintTop_toBottomOf="@id/etDoctorLastNameUpdate" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnAddPatientDetailsUpdate"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="50dp"
+            android:background="@drawable/btn_bg"
+            android:text="Update"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/etPatientNameUpdate"
+            app:layout_constraintStart_toStartOf="@id/etPatientNameUpdate"
+            app:layout_constraintTop_toBottomOf="@id/etDoctorDateUpdate" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

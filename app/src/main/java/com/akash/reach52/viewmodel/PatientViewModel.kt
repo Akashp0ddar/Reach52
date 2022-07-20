@@ -25,4 +25,22 @@ class PatientViewModel(application: Application) : AndroidViewModel(application)
             repository.addPatient(patientList)
         }
     }
+
+    fun updatePatient(patientList: PatientList){
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.updatePatient(patientList)
+        }
+    }
+
+    fun deletePatient(patientList: PatientList){
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.deletePatient(patientList)
+        }
+    }
+
+    fun deleteAllPatient(){
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.deleteAll()
+        }
+    }
 }

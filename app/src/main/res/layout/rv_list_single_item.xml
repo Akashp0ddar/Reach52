@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_margin="10dp"
-    app:cardCornerRadius="10dp"
-    android:elevation="10dp">
+    android:elevation="10dp"
+    app:cardCornerRadius="10dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/rowLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingBottom="15dp">
@@ -100,8 +101,8 @@
             android:id="@+id/ivPatientPicture"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:scaleType="centerCrop"
             android:layout_marginEnd="20dp"
+            android:scaleType="centerCrop"
             android:src="@drawable/ic_plus"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@id/Patient" />
@@ -111,12 +112,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/product_sans_regular"
-            tools:text="Prashant"
             android:textColor="@color/black"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="@id/tvPFirstName"
             app:layout_constraintStart_toEndOf="@id/tvPFirstName"
-            app:layout_constraintTop_toTopOf="@id/tvPFirstName" />
+            app:layout_constraintTop_toTopOf="@id/tvPFirstName"
+            tools:text="Prashant" />
 
 
         <TextView
@@ -124,12 +125,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/product_sans_regular"
-            tools:text="Kumar"
             android:textColor="@color/black"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="@id/tvPMiddleName"
             app:layout_constraintStart_toEndOf="@id/tvPMiddleName"
-            app:layout_constraintTop_toTopOf="@id/tvPMiddleName" />
+            app:layout_constraintTop_toTopOf="@id/tvPMiddleName"
+            tools:text="Kumar" />
 
 
         <TextView
@@ -137,36 +138,36 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/product_sans_regular"
-            tools:text="Singh"
             android:textColor="@color/black"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="@id/tvPLastName"
             app:layout_constraintStart_toEndOf="@id/tvPLastName"
-            app:layout_constraintTop_toTopOf="@id/tvPLastName" />
+            app:layout_constraintTop_toTopOf="@id/tvPLastName"
+            tools:text="Singh" />
 
         <TextView
             android:id="@+id/tvPatientSex"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/product_sans_regular"
-            tools:text="Male"
             android:textColor="@color/black"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="@id/tvPSex"
             app:layout_constraintStart_toEndOf="@id/tvPSex"
-            app:layout_constraintTop_toTopOf="@id/tvPSex" />
+            app:layout_constraintTop_toTopOf="@id/tvPSex"
+            tools:text="Male" />
 
         <TextView
             android:id="@+id/tvPatientBirthdate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/product_sans_regular"
-            tools:text="20-Mar-1997"
             android:textColor="@color/black"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="@id/tvPBirthDate"
             app:layout_constraintStart_toEndOf="@id/tvPBirthDate"
-            app:layout_constraintTop_toTopOf="@id/tvPBirthDate" />
+            app:layout_constraintTop_toTopOf="@id/tvPBirthDate"
+            tools:text="20-Mar-1997" />
 
         <View
             android:id="@+id/viewBirthDate"
@@ -232,7 +233,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:fontFamily="@font/product_sans_regular"
-            tools:text="LastName: "
+            android:text="LastName: "
             android:textColor="@color/black"
             android:textSize="20sp"
             app:layout_constraintStart_toStartOf="@id/Doctor"
@@ -255,36 +256,36 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/product_sans_regular"
-            tools:text="At562"
             android:textColor="@color/black"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="@id/tvDoctorID"
             app:layout_constraintStart_toEndOf="@id/tvDoctorID"
-            app:layout_constraintTop_toTopOf="@id/tvDoctorID" />
+            app:layout_constraintTop_toTopOf="@id/tvDoctorID"
+            tools:text="At562" />
 
         <TextView
             android:id="@+id/tvDFirstName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/product_sans_regular"
-            tools:text="Akash"
             android:textColor="@color/black"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="@id/tvDoctorFirstName"
             app:layout_constraintStart_toEndOf="@id/tvDoctorFirstName"
-            app:layout_constraintTop_toTopOf="@id/tvDoctorFirstName" />
+            app:layout_constraintTop_toTopOf="@id/tvDoctorFirstName"
+            tools:text="Akash" />
 
-        <TextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tvDMiddleName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/product_sans_regular"
-            tools:text="Hello"
             android:textColor="@color/black"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="@id/tvDoctorMiddleName"
             app:layout_constraintStart_toEndOf="@id/tvDoctorMiddleName"
-            app:layout_constraintTop_toTopOf="@id/tvDoctorMiddleName" />
+            app:layout_constraintTop_toTopOf="@id/tvDoctorMiddleName"
+            tools:text="Hello" />
 
         <TextView
             android:id="@+id/tvDLastName"
@@ -303,12 +304,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/product_sans_regular"
-            tools:text=" 20-Mar-1997"
             android:textColor="@color/black"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="@id/tvDoctorDate"
             app:layout_constraintStart_toEndOf="@id/tvDoctorDate"
-            app:layout_constraintTop_toTopOf="@id/tvDoctorDate" />
+            app:layout_constraintTop_toTopOf="@id/tvDoctorDate"
+            tools:text=" 20-Mar-1997" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

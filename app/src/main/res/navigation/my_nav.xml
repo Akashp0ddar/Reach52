@@ -52,5 +52,8 @@
         <action
             android:id="@+id/action_updateFragment_to_listFragment"
             app:destination="@id/listFragment" />
+        <argument
+            android:name="currentPatient"
+            app:argType="com.akash.reach52.model.PatientList" />
     </fragment>
 </navigation>

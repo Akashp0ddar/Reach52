@@ -6,24 +6,23 @@ import android.graphics.ImageDecoder
 import android.net.Uri
 import android.os.Bundle
 import android.text.TextUtils
-import android.util.Log
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.akash.reach52.R
 import com.akash.reach52.databinding.FragmentAddBinding
 import com.akash.reach52.model.PatientList
 import com.akash.reach52.viewmodel.PatientViewModel
 
-class AddFragment : Fragment() {
-    private lateinit var binding: FragmentAddBinding
-    private lateinit var mUserViewModel: PatientViewModel
+class AddFragment : Fragment(R.layout.fragment_add) {
+    private var binding: FragmentAddBinding? = null
     private lateinit var imageBitmap: Bitmap
+
+    private val viewModel by viewModels<PatientViewModel>()
+
 
     /**
      * Using contracts to pickup image from Gallery
@@ -31,36 +30,31 @@ class AddFragment : Fragment() {
     private val galleryImage = registerForActivityResult(ActivityResultContracts.GetContent()) {
         if (it != null) {
             imageBitmap = getImageUri(requireContext(), it)
-            binding.ivPatientImage.setImageURI(it)
+            binding?.ivPatientImage?.setImageURI(it)
         }
     }
 
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        binding = FragmentAddBinding.inflate(layoutInflater)
-        mUserViewModel = ViewModelProvider(requireActivity()).get(PatientViewModel::class.java)
-        return binding.root
-    }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding = FragmentAddBinding.bind(view)
         onClick()
     }
 
     private fun onClick() {
-        binding.btnAddPatientDetails.setOnClickListener {
-            if(::imageBitmap.isInitialized) {
+        binding?.btnAddPatientDetails?.setOnClickListener {
+            if (::imageBitmap.isInitialized) {
                 insertDataToDataBase()
-            }else{
-                Toast.makeText(requireContext(), "Please Fill out all the fields", Toast.LENGTH_SHORT).show()
+            } else {
+                Toast.makeText(
+                    requireContext(),
+                    "Please Fill out all the fields",
+                    Toast.LENGTH_SHORT
+                ).show()
             }
         }
 
-        binding.ivPatientImage.setOnClickListener {
+        binding?.ivPatientImage?.setOnClickListener {
             /**
              * Showing image in imageView
              */
@@ -69,17 +63,18 @@ class AddFragment : Fragment() {
     }
 
     private fun insertDataToDataBase() {
-        val patientFirstName = binding.etPatientName.text.toString()
-        val patientMiddleName = binding.etPatientMiddleName.text.toString()
-        val patientLastName = binding.etPatientLastName.text.toString()
-        val sex = binding.etPatientSex.text.toString()
-        val birthdate = binding.etPatientBirthdate.text.toString()
+        val patientFirstName = binding?.etPatientName?.text.toString()
+        val patientMiddleName = binding?.etPatientMiddleName?.text.toString()
+        val patientLastName = binding?.etPatientLastName?.text.toString()
+        val sex = binding?.etPatientSex?.text.toString()
+        val birthdate = binding?.etPatientBirthdate?.text.toString()
 
         // Inserting Doctor details
-        val doctorID = binding.etDoctorID.text.toString()
-        val doctorFirstName = binding.etDoctorFirstName.text.toString()
-        val doctorMiddleName = binding.etDoctorMiddleName.text.toString()
-        val doctorLastName = binding.etDoctorLastName.text.toString()
+        val doctorID = binding?.etDoctorID?.text.toString()
+        val doctorFirstName = binding?.etDoctorFirstName?.text.toString()
+        val doctorMiddleName = binding?.etDoctorMiddleName?.text.toString()
+        val doctorLastName = binding?.etDoctorLastName?.text.toString()
+        val doctorDate = binding?.etDoctorDate?.text.toString()
 
 
 
@@ -92,26 +87,26 @@ class AddFragment : Fragment() {
                 doctorID,
                 doctorFirstName,
                 doctorMiddleName,
-                doctorLastName
+                doctorLastName,
+                doctorDate
             )
         ) {
 
-                val patient = PatientList(
-                    FirstName = patientFirstName,
-                    MiddleName = patientMiddleName,
-                    LastName = patientLastName,
-                    Sex = sex,
-                    patientImage = imageBitmap,
-                    BirthDate = birthdate,
-                    DoctorFirstName = doctorFirstName,
-                    DoctorMiddleName = doctorMiddleName,
-                    DoctorLastName = doctorLastName,
-                    DoctorID = doctorID
-
-
-                )
-                //Add data to Database
-                mUserViewModel.addPatient(patient)
+            val patient = PatientList(
+                FirstName = patientFirstName,
+                MiddleName = patientMiddleName,
+                LastName = patientLastName,
+                Sex = sex,
+                patientImage = imageBitmap,
+                BirthDate = birthdate,
+                DoctorFirstName = doctorFirstName,
+                DoctorMiddleName = doctorMiddleName,
+                DoctorLastName = doctorLastName,
+                DoctorID = doctorID,
+                DoctorDate = doctorDate
+            )
+            //Add data to Database
+            viewModel.addPatient(patient)
             //Create User Object
             Toast.makeText(requireContext(), "Successfully Added", Toast.LENGTH_LONG).show()
             //Navigate Back
@@ -134,7 +129,8 @@ class AddFragment : Fragment() {
         DoctorID: String,
         DoctorFirstName: String,
         DoctorMiddleName: String,
-        DoctorLastName: String
+        DoctorLastName: String,
+        DoctorDate: String
     ): Boolean {
         return !(TextUtils.isEmpty(patientfirstName) &&
                 TextUtils.isEmpty(patientmiddleName) &&
@@ -144,12 +140,18 @@ class AddFragment : Fragment() {
                 TextUtils.isEmpty(DoctorID) &&
                 TextUtils.isEmpty(DoctorFirstName) &&
                 TextUtils.isEmpty(DoctorMiddleName) &&
-                TextUtils.isEmpty(DoctorLastName))
+                TextUtils.isEmpty(DoctorLastName) &&
+                TextUtils.isEmpty(DoctorDate))
     }
 
     private fun getImageUri(context: Context, Image: Uri): Bitmap {
         val source: ImageDecoder.Source = ImageDecoder.createSource(context.contentResolver, Image)
         return ImageDecoder.decodeBitmap(source)
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        binding = null
     }
 
 }

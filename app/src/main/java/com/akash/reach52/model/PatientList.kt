@@ -1,9 +1,12 @@
 package com.akash.reach52.model
 
 import android.graphics.Bitmap
+import android.os.Parcelable
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import kotlinx.android.parcel.Parcelize
 
+@Parcelize
 @Entity(tableName = "patient_list")
 data class PatientList(
     @PrimaryKey(autoGenerate = true)
@@ -20,5 +23,6 @@ data class PatientList(
     var DoctorID: String? = null,
     var DoctorFirstName: String? = null,
     var DoctorMiddleName: String? = null,
-    var DoctorLastName: String? = null
-)
+    var DoctorLastName: String? = null,
+    var DoctorDate: String? = null
+) : Parcelable
